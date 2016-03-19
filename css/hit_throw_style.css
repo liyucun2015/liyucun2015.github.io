@@ -1,6 +1,13 @@
 html, body {
     height: 100%;
-    background-color: #F15A5C;
+    background-color: #F15A5C;*/
     font-family: "Roboto Slab", serif;
     color: white;
+}
+
+img {
+  margin-top: 0px;
+  width: 50px;
+  height: 50px;
+  position:absolute;
 }
