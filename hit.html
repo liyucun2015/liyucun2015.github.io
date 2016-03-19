@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Baseball Strike!</title>
+	<link rel="stylesheet" href="css/hit_throw_style.css">
+	<style rel="stylesheet">
+		.arena {
+			background:transparent;
+			width:300px;
+			height:300px;
+			cursor:url(image/stick_left.png), auto;
+		}
+
+	</style>
+</head>
+<body>
+<!-- Include the PubNub Library -->
+<p id="demo">Test: </p>
+
+<h1 style="text-align: center;">Baseball Strike!</h1>
+
+<div class="arena" style="width:800px; height: 480px; margin:0 auto; background: url('image/baseball_arena.jpg'); background-size: contain;
+">
+</div>
+
+<script src="https://cdn.pubnub.com/pubnub-dev.js"></script>
+<script type="text/javascript">
+	var channel = getURLParameter('channel');
+	var username = getURLParameter('username');
+
+	console.log(channel);
+
+	var PUBNUB_demo = PUBNUB.init({
+		publish_key: 'pub-c-7f216929-1ce6-49a2-9d92-6884ff0d91f5',
+		subscribe_key: 'sub-c-801c40d4-eddd-11e5-872f-02ee2ddab7fe'
+	});
+
+	PUBNUB_demo.subscribe({
+		channel: channel,
+		message: function(m){
+			document.getElementById("demo").innerHTML += m.text;}
+	});
+
+	function getURLParameter(name) {
+		return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+	}
+
+</script>
+</body>
+</html>
