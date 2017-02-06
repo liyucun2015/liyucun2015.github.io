@@ -23,7 +23,7 @@ path {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 
-<h1>S&P 500 & VIX</h1>
+<h1>S&P 500 Energy Index & Crud Oil VIX</h1>
 
 <h2>S&P Options</h2>
 <form id="sp500_options">
@@ -116,7 +116,7 @@ function getVIXColumn(d, vix_option) {
 
 // Get the data
 function plot(sp500_option, vix_option) {
-  d3.csv("data/sp500_vix.csv", function(error, data) {
+  d3.csv("data/ovx_sp500_energy.csv", function(error, data) {
     if (error == null) {
       data.forEach(function(d) {
         d.date = parseDate(d.date);

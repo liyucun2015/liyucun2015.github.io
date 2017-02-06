@@ -1,2 +1,1 @@
-# BaseballHack
-Hackathon project in MTL Baseball Hackday
+Data Incubator Proposal Chart
